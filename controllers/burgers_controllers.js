@@ -7,7 +7,7 @@ router.get("/", function(req, res) {
     burger.all(function(data) {
       var hbsObject = {
         // handlebars object
-        burgercats: data
+        burger: data
       };
       console.log(hbsObject);
       res.render("index", hbsObject);
