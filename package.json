@@ -1,0 +1,24 @@
+{
+  "name": "burger-creator",
+  "version": "1.0.0",
+  "description": "Creates burgers for customers",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/H-garr/burgercreator.git"
+  },
+  "author": "Hayden Garrard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/H-garr/burgercreator/issues"
+  },
+  "homepage": "https://github.com/H-garr/burgercreator#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
+}
