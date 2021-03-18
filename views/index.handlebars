@@ -1,0 +1,61 @@
+<header>
+    <h1>burgers!</h1>
+</header>
+
+<main class="container">
+    <section class="row">
+        <aside class="col-md-6">
+            <h2>burgers that are not devoured!</h2>
+
+            <ul>
+                {{#each burgers}}
+                
+                {{#unless devoured}}
+             <p>   {{this.burger_name}}
+                 <button data-id={{this.id}} class="btn btn-success updateburger">Devour</button></p>
+                {{!-- {{>/burger devoured}} --}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </aside>
+        <aside class="col-md-6">
+            <h2>burgers that are devoured!</h2>
+
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+              <p>  {{this.burger_name}}
+                  <button data-id={{this.id}} class="btn btn-danger deleteburger">Delete</button>
+                  </p>
+                {{!-- {{>/burger devoured=false}} --}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </aside>
+    </section>
+</main>
+
+<section class="container">
+    <aside class="row">
+        <section class="col-md-10">
+
+            <h2>Add a burger</h2>
+            <form class="create-form">
+
+                <div class="form-group">
+                    <label for="burgerInput">burger Name:</label>
+                    <input type="text" id="burgerInput" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="devoured">devoured?</label><br>
+                    <input type="radio" name="devoured" value="1" checked> devoured!<br>
+                    <input type="radio" name="devoured" value="0">Not Devoured
+                </div>
+
+                <button id= "addBurger" type="submit">Add burger</button>
+            </form>
+
+        </section>
+    </aside>
+</section>

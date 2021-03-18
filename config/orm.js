@@ -1,10 +1,10 @@
 // Import MySQL connection.
-var connection = require("./config/connection.js");
+var connection = require("./connection.js");
 
 // Object for all our SQL statement functions.
 var orm = {
-  allBurgers: function(table, cb) { 
-     let queryString = `SELECT * FROM  + ${table};`;
+  all: function(table, cb) { 
+     let queryString = `SELECT * FROM ${table};`;
      console.log(queryString)
     connection.query(queryString, function(err, result) {
       if (err) {
@@ -13,8 +13,8 @@ var orm = {
       cb(result);
     });
   },
-  createBurgers: function(table, cols, vals, cb) {
-    var queryString = `INSERT INTO + ${table} (${cols}) VALUES ("${val}");`
+  create: function(table,cols,  vals, cb) {
+    var queryString = `INSERT INTO ${table} (burger_name,devoured) VALUES (?,?);`
 
     console.log(queryString);
 
@@ -27,7 +27,22 @@ var orm = {
     });
   },
   //need to do update here.
-  updateBurgers: function() {
+  update: function(table,  condition, cb) {
+    var queryString = `UPDATE ${table}`;
+
+    queryString += " SET ";
+    queryString +=  "devoured = true"
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
   },
   delete:	function(table, col, val, cb) {
 		let queryStr = `DELETE FROM ${table} WHERE ${col} = ${val};`;
